@@ -26,9 +26,13 @@ class Rotas {
         } else if (pathname.includes('/detalhes')) {
             this.usuarioService.buscarUsuario(pathname.split('/')[2])
             .then(usuario => {
-                this._detalhesUsuarioComponent.template(usuario).then(template=> {
-                    $("#main").html(template);
-                })
+                if(usuario.location && usuario.name) {
+                    this._detalhesUsuarioComponent.template(usuario).then(template=> {
+                        $("#main").html(template);
+                    })
+                } else {
+                    $("#mensagem").removeClass("oculto");
+                }
             });
         } else if (pathname.includes('/repositorios') && pathname.split('/').length == 3) {
             this.repositoriosService.buscarRepositorios(pathname.split('/')[2])
