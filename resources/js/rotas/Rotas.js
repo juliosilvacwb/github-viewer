@@ -61,15 +61,15 @@ class Rotas {
             let parts = search.split("/");
             
             if(search.split("/").length == 3) {
-                history.pushState( {id: `/${parts[1]}/${parts[2]}` }, 'GitHub Viewer', `/${parts[1]}/${parts[2]}` );
+                history.replaceState( {id: `/${parts[1]}/${parts[2]}` }, 'GitHub Viewer', `/${parts[1]}/${parts[2]}` );
             } else if(search.split("/").length == 4) {
-                history.pushState( {id: `/${parts[1]}/${parts[2]}/${parts[3]}` }, 'GitHub Viewer', `/${parts[1]}/${parts[2]}/${parts[3]}` );
+                history.replaceState( {id: `/${parts[1]}/${parts[2]}/${parts[3]}` }, 'GitHub Viewer', `/${parts[1]}/${parts[2]}/${parts[3]}` );
             }
 
             this.rotear(window.location.pathname);
         } else {
             let parts = search.split("/");
-            history.pushState( {id: '/' }, 'GitHub Viewer', '/' );
+            history.replaceState( {id: '/' }, 'GitHub Viewer', '/' );
             this.rotear(window.location.pathname);
         }
     }
