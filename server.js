@@ -7,5 +7,5 @@ const baseDir = `${__dirname}`;
 app.use(express.static(`${baseDir}`))
 app.get('/', (req,res) => res.sendFile('resources/pages/index.html' , { root : `${baseDir}` }))
 app.get('*', (req,res) => { res.redirect(`/?url=${req.url}`)})
-app.listen(3000, () => console.log(`Servidor subiu com sucesso em http://localhost:3000`))
+app.listen(process.env.PORT || 8080, () => console.log(`Servidor subiu com sucesso em http://localhost:3000`));
 
