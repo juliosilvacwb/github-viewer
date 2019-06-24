@@ -17,11 +17,11 @@ class HomeComponent {
                                 Usuário não encontrado
                             </div>
                         </div>
-                        <div class="col-md-6 offset-md-2 col-sm-12">
+                        <div class="col-md-6 offset-md-2 col-sm-12 top">
                             <input class="form-control" id="search" type="search" placeholder="Informe o usuário do gihub" aria-label="Pesquisar">
                         </div>
-                        <div class="col-md-2 col-sm-6" >
-                            <button class="btn btn-outline-success" type="button" onclick="rotas.homeController.buscarUsuario()">Pesquisar</button>
+                        <div class="col-md-2 col-sm-6 top">
+                            <button class="btn btn-outline-success col-sm-12" type="button" onclick="rotas.homeController.buscarUsuario()">Pesquisar</button>
                         </div>
                     </div>
                 </form>

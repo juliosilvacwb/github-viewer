@@ -3,6 +3,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .box-img {
     padding: 1em;
 }
@@ -20,4 +21,8 @@
     color: #0056b3;
     background-color: transparent;
     cursor: pointer
+}
+
+.top {
+    margin-top: 0.5em;
 }
