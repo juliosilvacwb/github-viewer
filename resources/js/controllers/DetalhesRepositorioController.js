@@ -20,7 +20,6 @@ class DetalhesRepositorioController {
     template(full_name) {
         this._username = full_name.split("/")[0]
         this._repositorioService.buscarRepositorio(full_name)
-        .then(repositorio => repositorio.json())
         .then(repositorio => {
             this._repositorio = repositorio;
             this.montarTemplate();
