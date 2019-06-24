@@ -10,7 +10,7 @@ class HomeComponent {
                         <img class="imagem" src="resources/img/image-home.svg">
                     </div>
                 </div>
-                <form id="form" onsubmit="rotas.homeController.buscarUsuario(event)">
+                <form id="form">
                     <div class="row">
                         <div class="col-md-8 offset-md-2">
                             <div class="alert alert-danger oculto" role="alert" id="mensagem">
@@ -21,7 +21,7 @@ class HomeComponent {
                             <input class="form-control" id="search" type="search" placeholder="Informe o nome do usuário do gihub" aria-label="Pesquisar">
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                            <button class="btn btn-outline-success" type="button" onclick="rotas.homeController.buscarUsuario()">Pesquisar</button>
                         </div>
                     </div>
                 </form>

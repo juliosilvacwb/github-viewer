@@ -1,15 +1,17 @@
 class HomeController {
 
-    constructor(rotas, usuarioService) {
-        this._usuarioService = usuarioService;
+    constructor(rotas) {
         this._rotas = rotas;
-     }
+        this._homeComponent = new HomeComponent();
+    }
 
-    buscarUsuario(event) {
-        event.preventDefault();
-        let username = $("#search").val();
+    buscarUsuario(username) {
+        username = username ? username : $("#search").val();
         this._rotas.go(`/detalhes/${username}`);
     }
 
-    
+    template() {
+        this._homeComponent.template().then(template => $("#main").html(template))
+    }
+
 }

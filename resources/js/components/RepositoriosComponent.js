@@ -4,51 +4,53 @@ class RepositoriosComponent {
     }
 
     template(username, repositorios) {
-        let component = 
-        `<nav aria-label="breadcrumb" style="margin-top: 1em;">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/detalhes/${username}">Detalhes</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Repositorios</li>
-            </ol>
-        </nav>
-        ${this.montarTabela(repositorios)}`;
-
         return new Promise((resolve, reject)=> {
-            resolve(component),
+            resolve(this.montarTabela(username, repositorios)),
             reject(Error("Erro interno"))
         })
     }
 
-    montarTabela(repositorios) {
-        repositorios.sort(function(a, b){return b.stargazers_count-a.stargazers_count}); 
+    montarTabela(username, repositorios) {
+        let component = 
+        `<nav aria-label="breadcrumb" style="margin-top: 1em;">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
 
-        let trs = '';
-        repositorios.forEach(rep => {
-            trs = trs.concat(`<tr style="cursor: pointer;" onclick="rotas.repositorioController.buscarRepositorio('${rep.full_name}')">
-                                <th scope="row">${rep.id}</th>
-                                <td>${rep.name}</td>
-                                <td>${rep.description}</td>
-                                <td>${rep.stargazers_count}</td>
-                            </tr>`);
-        })
-
-        if(repositorios.length > 0) {
-           return   `<table class="table table-hover">
-                        <thead>
-                            <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col">Estrelas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${trs}
-                        </tbody>
-                    </table>`;
+                <li class="breadcrumb-item">
+                    <span onclick="rotas.homeController.buscarUsuario('${username}')" 
+                        id="repositorios" class="card-link link">Detalhes Usuário</span>
+                </li>
+                
+                <li class="breadcrumb-item active" aria-current="page">Repositorios</li>
+            </ol>
+        </nav>`
+        if(repositorios && repositorios.length > 0) {
+            let trs = '';
+            repositorios.forEach(rep => {
+                trs = trs.concat(`<tr style="cursor: pointer;" onclick="rotas.detalhesRepositorioController.buscarRepositorio('${rep.full_name}')">
+                                    <th scope="row">${rep.id}</th>
+                                    <td>${rep.name}</td>
+                                    <td>${rep.description}</td>
+                                    <td>${rep.stargazers_count}</td>
+                                </tr>`);
+            })
+    
+               return   `${component}
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                <th scope="col" onclick(rotas.repositorioController.buscarRepositorio(id))>#</th>
+                                <th scope="col" onclick(rotas.repositorioController.buscarRepositorio(name))>Nome</th>
+                                <th scope="col" onclick(rotas.repositorioController.buscarRepositorio(description))>Descrição</th>
+                                <th scope="col" onclick(rotas.repositorioController.buscarRepositorio(stargazers_count))>Estrelas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${trs}
+                            </tbody>
+                        </table>`;
         } else {
-            return 'Não há repositórios para apresentar'
+            return `${component} <br/> Não há repositórios para apresentar`
         }
     }
 

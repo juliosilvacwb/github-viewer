@@ -10,3 +10,14 @@
 .oculto {
     display: none;
 }
+
+.link {
+    color: #007bff;
+    background-color: transparent;
+}
+
+.link:hover {
+    color: #0056b3;
+    background-color: transparent;
+    cursor: pointer
+}

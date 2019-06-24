@@ -3,24 +3,34 @@ class DetalhesRepositorioComponent {
     constructor() {
     }
 
-    template(repositorio) {
-        let card = this.montarCard(repositorio);
-        console.log(card)
-        let component = 
-        `<nav aria-label="breadcrumb" style="margin-top: 1em;">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/detalhes/${repositorio.owner.login}">Detalhes</a></li>
-                <li class="breadcrumb-item"><a href="/repositorios/${repositorio.owner.login}">Repositorios</a></li>
-                <li class="breadcrumb-item active" aria-current="page">${repositorio.name}</li>
-            </ol>
-        </nav>
-        ${this.montarCard(repositorio)}`;
+    template(username, repositorio) {
 
         return new Promise((resolve, reject)=> {
-            resolve(component),
+            resolve(this.montarTemplate(username, repositorio)),
             reject(Error("Erro interno"))
         })
+    }
+
+    montarTemplate(username, repositorio) {
+        let component = `<nav aria-label="breadcrumb" style="margin-top: 1em;">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item">
+                                    <span onclick="rotas.homeController.buscarUsuario('${username}')" 
+                                        id="repositorios" class="card-link link">Detalhes Usuário</span>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <span onclick="rotas.detalhesRepositorioController.buscarRepositorio('${username}')" 
+                                        id="repositorios" class="card-link link">Repositórios</span>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">${repositorio ? repositorio.name : ''}</li>
+                            </ol>
+                        </nav>`
+        if(repositorio) {
+            return `${component} ${this.montarCard(repositorio)}`
+        } else {
+            return `${component} <br/> Repositório não encontrado`
+        }
     }
 
     montarCard(repositorio) {
