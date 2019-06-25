@@ -31,7 +31,7 @@ class RepositoriosComponent {
                                     <th scope="row">${rep.id}</th>
                                     <td>${rep.name}</td>
                                     <td>${rep.description}</td>
-                                    <td>${rep.stargazers_count}</td>
+                                    <td>${ComunComponent.montarRating(rep.stargazers_count)}</td>
                                 </tr>`);
             })
     

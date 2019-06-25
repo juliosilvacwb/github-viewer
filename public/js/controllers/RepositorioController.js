@@ -6,7 +6,7 @@ class RepositorioController {
         this._rotas = rotas;
         this._username = '';
         this._repositorios = [];
-        this._estaOrdenadoPor = 'asc';
+        this._estaOrdenadoPor = 'stargazers_count';
      }
 
     buscarRepositorio(full_name) {

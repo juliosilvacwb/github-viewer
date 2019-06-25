@@ -40,7 +40,7 @@ class DetalhesRepositorioComponent {
                 <p class="card-text">${repositorio.description}</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Estrelas: ${repositorio.stargazers_count}</li>
+                <li class="list-group-item">${ComunComponent.montarRating(repositorio.stargazers_count)}</li>
                 <li class="list-group-item">Linguagem: ${repositorio.linguagem ? repositorio.linguagem : 'Não informado'}</li>
             </ul>
             <div class="card-body">
