@@ -8,7 +8,7 @@ class Rotas {
         this.repositorioController = new RepositorioController(this, this._repositorioService);
         this.detalhesRepositorioController = new DetalhesRepositorioController(this, this._repositorioService);
         
-        window.location.search ? this.search(window.location.search) : this.rotear(window.location.pathname) ;
+        this.rotear(window.location.pathname);
     }
     
     rotear(pathname) {
@@ -34,10 +34,4 @@ class Rotas {
         this.rotear(uri);
     }
 
-    search(search) {
-        search = window.location.search.split("=")[1];
-        history.replaceState( {id: search }, 'GitHub Viewer', search )
-        this.rotear(search)
-    }
-    
 }

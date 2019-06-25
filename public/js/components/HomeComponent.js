@@ -7,7 +7,7 @@ class HomeComponent {
             `<div class="home">
                 <div class="row">
                     <div class="col-md-8 offset-md-2 box-img">
-                        <img src="resources/img/image-home.svg" class="imagem figure-img img-fluid">
+                        <img src="static/img/image-home.svg" class="imagem figure-img img-fluid">
                     </div>
                 </div>
                 <form id="form">
