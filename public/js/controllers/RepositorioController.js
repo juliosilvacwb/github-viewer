@@ -6,14 +6,40 @@ class RepositorioController {
         this._rotas = rotas;
         this._username = '';
         this._repositorios = [];
+        this._estaOrdenadoPor = 'asc';
      }
 
     buscarRepositorio(full_name) {
         this._rotas.go(`/repositorios/${full_name}`);
     }
 
-    ordernarPor(coluna) {
-        this._repositorios.sort(function(a, b){return b[coluna]-a[coluna]});
+    ordenarPor(coluna) {
+
+        if(this._estaOrdenadoPor == coluna) {
+            this._estaOrdenadoPor = 'asc'
+        } else {
+            this._estaOrdenadoPor = coluna
+        }
+        
+        this._repositorios = this._repositorios.sort((a, b) => {
+            if(isNaN(a[coluna]) && isNaN(b[coluna])) {
+                var textA = `${a[coluna]}`.toUpperCase();
+                var textB = `${b[coluna]}`.toUpperCase();
+    
+                if(this._estaOrdenadoPor == 'asc') {
+                    return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
+                } else {
+                    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+                }
+            } else {
+                if(this._estaOrdenadoPor == 'asc') {
+                    return b[coluna]-a[coluna];
+                } else {
+                    return a[coluna]-b[coluna];
+                }
+            }
+            
+        });
         this.montarTemplate();
     }
 
@@ -27,7 +53,7 @@ class RepositorioController {
         .then(repositorios => {
             if(repositorios) {
                 this._repositorios = repositorios;
-                this.ordernarPor('stargazers_count');
+                this.ordenarPor('stargazers_count');
                 this._username = username;
             }
             this.montarTemplate();

@@ -39,10 +39,10 @@ class RepositoriosComponent {
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                <th scope="col" onclick(rotas.repositorioController.buscarRepositorio(id))>#</th>
-                                <th scope="col" onclick(rotas.repositorioController.buscarRepositorio(name))>Nome</th>
-                                <th scope="col" onclick(rotas.repositorioController.buscarRepositorio(description))>Descrição</th>
-                                <th scope="col" onclick(rotas.repositorioController.buscarRepositorio(stargazers_count))>Estrelas</th>
+                                <th scope="col" onclick="rotas.repositorioController.ordenarPor('id')" style="cursor: pointer">#</th>
+                                <th scope="col" onclick="rotas.repositorioController.ordenarPor('name')" style="cursor: pointer">Nome</th>
+                                <th scope="col" onclick="rotas.repositorioController.ordenarPor('description')" style="cursor: pointer">Descrição</th>
+                                <th scope="col" onclick="rotas.repositorioController.ordenarPor('stargazers_count')" style="cursor: pointer">Estrelas</th>
                                 </tr>
                             </thead>
                             <tbody>
