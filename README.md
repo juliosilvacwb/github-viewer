@@ -1,6 +1,6 @@
 # GitHub Viewer
 
-Este é uma sistema de visulização de informações de usuários do GitHub baseado nas informações recebidas na api disponibilizada pelo proprio GitHUb.
+Este é uma sistema de visulização de informações de <br/>usuários do GitHub baseado nas informações recebidas na api disponibilizada pelo proprio GitHUb.
 
 Os requisitos para esta aplicação foram:
 
