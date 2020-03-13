@@ -14,10 +14,10 @@ class DetalhesUsuarioController {
         this._usuarioService.buscarUsuario(username)
         .then(usuario => {
             if (usuario.location && usuario.name) {
-                this._detalhesUsuarioComponent.template(usuario).then(template => $("#main").html(template))
+                this._detalhesUsuarioComponent.template(usuario).then(template => $("#main").innerHTML = template)
             } else {
-                if($("#mensagem").text()) {
-                    $("#mensagem").removeClass("oculto");
+                if($("#mensagem").textContent) {
+                    $("#mensagem").classList.remove("oculto");
                     history.replaceState({id: '/' }, 'GitHub Viewer', '/')
                 } else {
                     this._rotas.go(`/`);

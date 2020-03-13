@@ -14,7 +14,7 @@ class DetalhesRepositorioController {
 
     montarTemplate() {
         this._detalhesRepositoriosComponent.template(this._username, this._repositorio)
-        .then(template => $("#main").html(template))
+        .then(template => $("#main").innerHTML = template)
     }
     
     template(full_name) {

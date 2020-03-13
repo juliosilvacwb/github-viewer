@@ -15,12 +15,12 @@ class RepositoriosComponent {
         `<nav aria-label="breadcrumb" style="margin-top: 1em;">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-
+                <li class="breadcrumb-item active" aria-current="page">/</li>
                 <li class="breadcrumb-item">
                     <span onclick="rotas.homeController.buscarUsuario('${username}')" 
-                        id="repositorios" class="card-link link">Detalhes Usuário</span>
+                        id="repositorios" class="link">Detalhes Usuário</span>
                 </li>
-                
+                <li class="breadcrumb-item active" aria-current="page">/</li>
                 <li class="breadcrumb-item active" aria-current="page">Repositorios</li>
             </ol>
         </nav>`
@@ -36,19 +36,21 @@ class RepositoriosComponent {
             })
     
                return   `${component}
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                <th scope="col" onclick="rotas.repositorioController.ordenarPor('id')" style="cursor: pointer">#</th>
-                                <th scope="col" onclick="rotas.repositorioController.ordenarPor('name')" style="cursor: pointer">Nome</th>
-                                <th scope="col" onclick="rotas.repositorioController.ordenarPor('description')" style="cursor: pointer">Descrição</th>
-                                <th scope="col" onclick="rotas.repositorioController.ordenarPor('stargazers_count')" style="cursor: pointer">Estrelas</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${trs}
-                            </tbody>
-                        </table>`;
+                        <div class="container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('id')" style="cursor: pointer">#</th>
+                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('name')" style="cursor: pointer">Nome</th>
+                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('description')" style="cursor: pointer">Descrição</th>
+                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('stargazers_count')" style="cursor: pointer">Estrelas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${trs}
+                                </tbody>
+                            </table>
+                        </div>`;
         } else {
             return `${component} <br/> Não há repositórios para apresentar`
         }

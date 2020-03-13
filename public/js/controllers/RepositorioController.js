@@ -45,7 +45,7 @@ class RepositorioController {
 
     montarTemplate() {
         this._repositoriosComponent.template(this._username, this._repositorios)
-        .then(template => $("#main").html(template))
+        .then(template => $("#main").innerHTML = template)
     }
     
     template(username) {

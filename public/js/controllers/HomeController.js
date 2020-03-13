@@ -5,13 +5,18 @@ class HomeController {
         this._homeComponent = new HomeComponent();
     }
 
+    submeter(e) {
+        e.preventDefault();
+        this.buscarUsuario($("#search").value);
+    }
+
     buscarUsuario(username) {
-        username = username ? username : $("#search").val();
+        username = username ? username : $("#search").value;
         this._rotas.go(`/detalhes/${username}`);
     }
 
     template() {
-        this._homeComponent.template().then(template => $("#main").html(template))
+        this._homeComponent.template().then(template => $("#main").innerHTML = template)
     }
 
 }

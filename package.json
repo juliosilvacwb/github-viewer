@@ -1,7 +1,7 @@
 {
-  "name": "frontenddbd",
+  "name": "gihubviwer",
   "version": "1.0.0",
-  "description": "Frontend Javascript",
+  "description": "Github viewer em vanilla",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
