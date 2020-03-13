@@ -8,8 +8,11 @@ body {
 }
 
 .imagem {
-    width: 30%;
-    margin-top: 3em;
+    width: 40%;
+}
+
+.imagem-avatar {
+    width: 90%;
 }
 
 .main {
@@ -279,12 +282,12 @@ a:hover, .link:hover {
 
 @media only screen and (max-width: 600px) {
     .container {
-        width: calc(100% - 0.5em);
+        width: calc(100% - 1em);
     }
 
     nav {
         margin-top: 1em;
-        width: calc(100% - 0.5em);
+        width: calc(100% - 1em);
     }
     
     button {
@@ -303,14 +306,50 @@ a:hover, .link:hover {
 
     .col {
         flex-direction: column;
+        padding: 0;
+        margin: 0;
+        width: calc(100% - 1em);
+        max-width: calc(100% - 1em);
+    }
+    
+    .card-list {
+        padding: 0;
+        margin: 0;
     }
 
     .card-deck {
-        width: 95.5%;
-        max-width: 95.5%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        padding: 1em;
+    }
+
+    .imagem {
+        width: 90%;
+    }
+
+    .card {
+        width: calc(100% - 1em);
+        max-width: calc(100% - 1em);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+
+    .divimagem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+
+    .row {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        flex-direction: column;
+        justify-content: center;
     }
 
 }

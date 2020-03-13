@@ -28,8 +28,8 @@ class DetalhesUsuarioComponent {
 
                         <div class="card m6 s12">
                             <div class="col">
-                                <div class="m4 s12 center">
-                                    <img src="${ usuario.avatar_url }" id="avatar" class="card-img" alt="imagem do usuário">
+                                <div class="m4 s12 divimagem">
+                                    <img src="${ usuario.avatar_url }" id="avatar" class="imagem-avatar" alt="imagem do usuário">
                                 </div>
                                 <div class="m8 s12">
                                     <div class="">
