@@ -30,7 +30,7 @@ class RepositoriosComponent {
                 trs = trs.concat(`<tr style="cursor: pointer;" onclick="rotas.detalhesRepositorioController.buscarRepositorio('${rep.full_name}')">
                                     <th scope="row">${rep.id}</th>
                                     <td>${rep.name}</td>
-                                    <td>${rep.description}</td>
+                                    <td class="hideInMobile">${rep.description}</td>
                                     <td>${ComunComponent.montarRating(rep.stargazers_count)}</td>
                                 </tr>`);
             })
@@ -39,11 +39,11 @@ class RepositoriosComponent {
                         <div class="container">
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('id')" style="cursor: pointer">#</th>
-                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('name')" style="cursor: pointer">Nome</th>
-                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('description')" style="cursor: pointer">Descrição</th>
-                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('stargazers_count')" style="cursor: pointer">Estrelas</th>
+                                    <tr style="cursor: pointer">
+                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('id')">#</th>
+                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('name')">Nome</th>
+                                        <th scope="col" class="hideInMobile" onclick="rotas.repositorioController.ordenarPor('description')">Descrição</th>
+                                        <th scope="col" onclick="rotas.repositorioController.ordenarPor('stargazers_count')">Estrelas</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -5,10 +5,12 @@ body {
     margin: 0;
     font-family: "Lato", sans-serif;
     color: #3F4244;
+    box-sizing: border-box;
 }
 
 .imagem {
     width: 40%;
+    margin-top: 3em;
 }
 
 .imagem-avatar {
@@ -24,6 +26,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 .container {
@@ -90,7 +93,7 @@ body {
 }
 
 .input-text {
-    min-width: 25em;
+    width: 25em;
     max-width: 100%;
 }
 
@@ -282,7 +285,9 @@ a:hover, .link:hover {
 
 @media only screen and (max-width: 600px) {
     .container {
-        width: calc(100% - 1em);
+        width: 90%;
+        max-width: 90%;
+        box-sizing: border-box;
     }
 
     nav {
@@ -325,7 +330,7 @@ a:hover, .link:hover {
     }
 
     .imagem {
-        width: 90%;
+        width: 30%;
     }
 
     .card {
@@ -344,12 +349,9 @@ a:hover, .link:hover {
         margin-bottom: 1em;
     }
 
-    .row {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        flex-direction: column;
-        justify-content: center;
+    .hideInMobile {
+        display: none;
+        visibility: hidden;
     }
 
 }
